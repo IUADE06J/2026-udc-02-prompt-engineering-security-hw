@@ -8,7 +8,7 @@ version: 1
 
 ## Baseline (weak)
 
-```
+```text
 перевір чи все ок
 ```
 

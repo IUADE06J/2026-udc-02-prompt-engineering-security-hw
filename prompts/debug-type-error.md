@@ -8,7 +8,7 @@ version: 1
 
 ## Baseline (weak)
 
-```
+```text
 typecheck падає
 ```
 

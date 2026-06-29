@@ -56,6 +56,9 @@ export function parseAmount(input: string): number {
  * splitEvenly(100, 3); // [34, 33, 33]
  */
 export function splitEvenly(totalCents: number, n: number): number[] {
+  if (!Number.isInteger(n) || n <= 0) {
+    throw new Error(`Invalid recipient count: ${n}`);
+  }
   const base = Math.floor(totalCents / n);
   const remainder = totalCents - base * n;
   const shares = new Array(n).fill(base);
@@ -75,7 +78,7 @@ export function splitEvenly(totalCents: number, n: number): number[] {
  * applyDiscount(10000, 10); // 9000
  */
 export function applyDiscount(cents: number, percent: number): number {
-  if (percent < 0 || percent > 100) {
+  if (!Number.isFinite(percent) || percent < 0 || percent > 100) {
     throw new Error(`Invalid discount percent: ${percent}`);
   }
   return Math.round(cents * (1 - percent / 100));
